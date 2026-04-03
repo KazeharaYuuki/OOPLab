@@ -1,0 +1,4 @@
+Câu hỏi mục 8: Nếu bạn tạo một constructor bằng title, sau đó lại tạo một constructor khác bằng category. Java có cho phép điều này xảy ra không?
+Trả lời:
+Không. Java phân biệt các phương thức nạp chồng bằng chữ ký phương thức, bao gồm 2 thành phần chính: Tên phương thức và Kiểu dữ liệu của các tham số.
+Vì cả title và category đều là kiểu string, nên Java sẽ thấy hai constructor này có chữ ký giống hệt nhau (DigitalVideoDisc(String)). Nó sẽ không phân biệt được khi bạn truyền một chuỗi vào thì bạn đang muốn gán cho title hay category.
