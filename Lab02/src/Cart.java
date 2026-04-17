@@ -16,6 +16,23 @@ public class Cart {
             System.out.println("The cart is almost full");
         }
     }
+    // Lab03, Part 2
+    public void addDigitalVideoDisc(DigitalVideoDisc... dvds) {
+        if (dvds == null) {
+            System.out.println("DVD list is null");
+            return;
+        }
+        for (DigitalVideoDisc dvd : dvds) {
+            addDigitalVideoDisc(dvd);
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+        addDigitalVideoDisc(disc1);
+        addDigitalVideoDisc(disc2);
+    }
+    // End of Lab03, Part 2
+
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         if (disc == null) {
             System.out.println("Cannot remove null disc");
