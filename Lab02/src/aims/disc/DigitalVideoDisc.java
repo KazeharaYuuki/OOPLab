@@ -1,3 +1,5 @@
+package aims.disc;
+
 public class DigitalVideoDisc {
     // Part 6
     private String title;

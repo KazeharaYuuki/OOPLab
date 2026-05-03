@@ -1,3 +1,7 @@
+package aims.store;
+
+import aims.disc.DigitalVideoDisc;
+
 public class Store {
     private DigitalVideoDisc itemsInStore[];
     private int qtyInStore = 0;
