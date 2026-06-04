@@ -2,28 +2,32 @@ package hust.soict.swing;
 
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
-public class AWTAccumulator extends Frame {
-    private TextField tfInput;
-    private TextField tfOutput;
+public class SwingAccumulator extends JFrame {
+    private JTextField tfInput;
+    private JTextField tfOutput;
     private int sum = 0;
 
-    public AWTAccumulator() {
-        setLayout(new GridLayout(2, 2));
+    public SwingAccumulator() {
+        Container cp = getContentPane();
+        cp.setLayout(new GridLayout(2, 2));
 
-        add(new Label("Enter an Integer: "));
-        tfInput = new TextField(10);
-        add(tfInput);
-
+        cp.add(new JLabel("Enter an Integer: "));
+        tfInput = new JTextField(10);
+        cp.add(tfInput);
         tfInput.addActionListener(new TFInputListener());
 
-        add(new Label("The Accumulated Sum is: "));
-        tfOutput = new TextField(10);
+        cp.add(new JLabel("The Accumulated Sum is: "));
+        tfOutput = new JTextField(10);
         tfOutput.setEditable(false);
-        add(tfOutput);
+        cp.add(tfOutput);
 
-        setTitle("AWT Accumulator");
+        setTitle("Swing Accumulator");
         setSize(350, 120);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         setVisible(true);
     }
 
@@ -38,6 +42,6 @@ public class AWTAccumulator extends Frame {
     }
 
     public static void main(String[] args) {
-        new AWTAccumulator();
+        new SwingAccumulator();
     }
 }
