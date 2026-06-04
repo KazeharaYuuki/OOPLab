@@ -1,5 +1,7 @@
 package aims.media;
 
+import aims.exception.PlayerException;
+
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable {
@@ -42,17 +44,17 @@ public class CompactDisc extends Disc implements Playable {
     }
 
     @Override
-    public void play() {
+    public void play() throws PlayerException {
         if (this.getLength() > 0) {
-            System.out.println("Playing CD: " + this.getTitle() + " by " + this.getArtist());
-            System.out.println("CD total length: " + this.getLength());
-            System.out.println("----------------------------------------");
+            java.util.Iterator iter = tracks.iterator();
+            Track nextTrack;
 
-            for (Track track : tracks) {
-                track.play();
+            while (iter.hasNext()) {
+                nextTrack = (Track) iter.next();
+                nextTrack.play();
             }
         } else {
-            System.out.println("ERROR: CD " + this.getTitle() + " cannot be played because its total length is 0 or less.");
+            throw new PlayerException("ERROR: CD length is non-positive!");
         }
     }
 

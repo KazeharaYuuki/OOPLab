@@ -2,12 +2,12 @@ package aims.cart;
 
 import aims.media.DigitalVideoDisc;
 import aims.media.Media;
-import java.util.ArrayList;
 import java.util.Collections;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-// Part 9
 public class Cart {
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
     public Cart() {
     }
@@ -49,9 +49,11 @@ public class Cart {
     }
 
     public void addDigitalVideoDisc(DigitalVideoDisc dvd1) {
+        addMedia(dvd1);
     }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc dvd2) {
+        removeMedia(dvd2);
     }
 
     public void sortByTitle() {
@@ -62,6 +64,11 @@ public class Cart {
     public void sortByCost() {
         Collections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);
         System.out.println("Cart has been sorted by cost.");
+    }
+
+
+    public ObservableList<Media> getItemsOrdered() {
+        return this.itemsOrdered;
     }
 }
 

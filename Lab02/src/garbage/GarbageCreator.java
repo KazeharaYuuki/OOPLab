@@ -6,24 +6,23 @@ import java.nio.file.Paths;
 
 public class GarbageCreator {
     public static void main(String[] args) {
-        String filename = "test.exe"; // Thay bằng tên file thực tế bạn có
-        byte[] inputBytes = { 0 };
-        long startTime, endTime;
+        String filename = args.length > 0 ? args[0] : "test.exe";
+        byte[] inputBytes;
+        long startTime;
+        long endTime;
 
         try {
-            // Đọc toàn bộ file thành mảng byte
-            inputBytes = Files.readAllBytes(Paths.get(filename));[cite: 1]
-            startTime = System.currentTimeMillis();[cite: 1]
+            inputBytes = Files.readAllBytes(Paths.get(filename));
+            startTime = System.currentTimeMillis();
 
-            String outputString = "";[cite: 1]
+            String outputString = "";
             for (byte b : inputBytes) {
-                // Mỗi lần cộng chuỗi, một đối tượng String mới được tạo ra trong Heap
-                outputString += (char) b;[cite: 1]
+                outputString += (char) b;
             }
 
-            endTime = System.currentTimeMillis();[cite: 1]
-            // In ra thời gian xử lý (đơn vị: miligiây)[cite: 1]
-            System.out.println("Processing time with String (+): " + (endTime - startTime));[cite: 1]
+            endTime = System.currentTimeMillis();
+            System.out.println("Processing time with String (+): " + (endTime - startTime) + " ms");
+            System.out.println("Output length: " + outputString.length());
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
