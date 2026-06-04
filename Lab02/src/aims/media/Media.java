@@ -44,20 +44,19 @@ public abstract class Media {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
+        if (this == obj) return true;
 
-        if (obj == null || !(obj instanceof Media)) { //
-            return false;
-        }
+        if (obj == null) return false;
+
+        if (!(obj instanceof Media)) return false;
 
         Media other = (Media) obj;
 
         if (this.title == null) {
-            return other.getTitle() == null;
+            return other.title == null;
         }
-        return this.title.equalsIgnoreCase(other.getTitle());
+
+        return this.title.equalsIgnoreCase(other.title);
     }
 
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();

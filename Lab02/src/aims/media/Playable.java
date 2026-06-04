@@ -1,5 +1,7 @@
 package aims.media;
 
+import aims.exception.PlayerException;
+
 public interface Playable {
-    public void play();
+    public void play() throws PlayerException;
 }
